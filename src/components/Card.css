@@ -1,0 +1,39 @@
+.card{
+    width: 288px;
+    height: 395px;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+
+}
+.card:hover{
+    cursor: pointer;
+    transform: scale(0.99);
+    color: black;
+}
+img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 288px;
+    height: 192px;
+}
+.card_bottom{
+    margin: 0;
+    padding: 10px 10px;
+
+}
+.card_bottom span{
+    font-size: 15px;
+    margin-left: 5px;
+}
+h6{
+    display: flex;
+    justify-content: flex-start;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
