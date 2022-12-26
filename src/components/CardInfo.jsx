@@ -52,12 +52,12 @@ function CardInfo() {
           </div>
           <div className="country_body_right_r">
            <div><span>Top Level Domain:</span></div>
-           <div><span>Currencies:</span><span>salam</span></div>
-           <div><span>Languages:</span><span>salam</span></div>
+           <div><span>Currencies:</span><span>Canadian dollar</span></div>
+           <div><span>Languages:</span><span>English, French</span></div>
           </div>
           </div>
-          <p>Border:
-             <span>{prod.borders[0]}</span><span>{prod.borders[1]}</span><span>{prod.borders[2]}</span><span>{prod.borders[3]}</span><span>{prod.borders[4]}</span><span>{prod.borders[5]}</span></p>
+          {/* <p>Border:
+             <span>{prod.borders[0]}</span><span>{prod.borders[1]}</span><span>{prod.borders[2]}</span><span>{prod.borders[3]}</span><span>{prod.borders[4]}</span><span>{prod.borders[5]}</span></p> */}
          </div>
        </div></>
       )
