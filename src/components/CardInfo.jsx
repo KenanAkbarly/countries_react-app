@@ -52,7 +52,7 @@ function CardInfo() {
           </div>
           <div className="country_body_right_r">
            <div><span>Top Level Domain:</span></div>
-           <div><span>Currencies:</span><span>{prod.currencies.name}</span></div>
+           <div><span>Currencies:</span><span>salam</span></div>
            <div><span>Languages:</span><span>salam</span></div>
           </div>
           </div>
