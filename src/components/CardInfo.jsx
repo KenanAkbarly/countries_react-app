@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 // import Navbar from '../components/Navbar'
 import '../components/CardInfo.css'
-
+import {Helmet} from "react-helmet";
 import axios from 'axios'
 // import { useEffect, useState } from 'react'
 // import { useParams } from 'react-router-dom'
@@ -23,13 +23,19 @@ function CardInfo() {
 
   return (
     <>
+     
+    
     {
           loading?(<div className="spinner-border" role="status">
           <span className="sr-only"></span>
         </div>):( showDetails.map((prod)=>{
       return(
         <>
-        
+         <Helmet>
+                <meta charSet="utf-8" />
+                <title>{prod.name.official}</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
      
         <div className='button_div'>
        

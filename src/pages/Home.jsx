@@ -5,6 +5,8 @@ import '../components/loader.css'
 import Card from '../components/Card'
 import CardInfo from '../components/CardInfo'
 import axios from 'axios'
+import {Helmet} from "react-helmet";
+
 import './Home.css'
 const Home = () => {
     const navigate = useNavigate();
@@ -36,6 +38,11 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>Home</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
    <div className='fltr_search'>
 
    <div className='inp_filter' >
