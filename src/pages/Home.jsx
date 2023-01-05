@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Routes, Route, useNavigate} from 'react-router-dom';
-
+import '../components/loader.css'
 // import Footer from '../components/Footer'
 import Card from '../components/Card'
 import CardInfo from '../components/CardInfo'
@@ -11,9 +11,16 @@ const Home = () => {
     const cardInfoPage = (cardInfo)=>{
    navigate('./CardInfo');
     }
-
+    const [input,setInput] = useState('');
+    const handleChange = (event)=>{
+        setInput(event.target.value)
+        console.log(event.target.value)
+        console.log(input);
+     }
     const [data,setData] = useState([])
     console.log(data);
+
+    const [region,setRegion] = useState('All')
     const [loading,setLoading] = useState(true)
    useEffect(()=>{
     axios
@@ -21,40 +28,55 @@ const Home = () => {
         setData(response.data)
         setLoading(false)
         // console.log(response.data)
+        // console.log("buradan tap "+ data);
+        // console.log("buradan tap "+ data);
+        // console.log("buradan tap "+ data);
     })
    },[])
 
   return (
     <>
    <div className='fltr_search'>
+
    <div className='inp_filter' >
         <div className="inp_filter_serach">
         <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder='Search for country..'/>
+            <input type="text" value={input} onChange={handleChange} placeholder='Search for country..'/>
           
         </div>
 
     </div>
 
-   <div id="dropdown">
-                        <button id='btn' class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown button
-                        </button>
-                        <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" >Africa</a></li>
-                            <li><a className="dropdown-item" >Americas</a></li>
-                            <li><a className="dropdown-item" >Asia</a></li>
-                            <li><a className="dropdown-item" >Europe</a></li>
-                            <li><a className="dropdown-item" >Oceania</a></li>
-                        </ul>
+                        <select className="dropdown" onChange={event=> setRegion(event.target.value)} name='regions' id='regions'>
+                            <option value='All'>All</option>
+                            <option value='Africa'>All</option>
+                            <option value='Americas'>Americas</option>
+                            <option value='Asia'>Asia</option>
+                            <option value='Europe'>Europe</option>
+                            <option value='Oceania'>Oceania</option>
+                        </select>
+                        
                     </div>
-   </div>
+ 
    
     <div className='container'>
-    { loading ? (<div className="spinner-border" role="status">
-          <span className="sr-only"></span>
-        </div>):(
-            data.map((cardData)=>{
+    { loading ? (<div className='loader_body'><span class="loader"></span></div>):(
+            data.filter((item)=>{
+                if(input === ''){
+                    return item
+                }else if(item.name.common.toLowerCase().includes(input.toLowerCase())){
+                    return item
+                }
+            })
+            .filter((item)=>{
+                if(region == 'All'){
+                    return item;
+                }
+                else if(item.region == region){
+                    return item.region
+                }
+            })
+            .map((cardData)=>{
                 return <Card key={cardData.id} card ={cardData}
                 
                 
